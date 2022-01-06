@@ -4,6 +4,19 @@
     margin: 0;
 }
 
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
 .display {
     display: flex;
     justify-content: center;
@@ -23,6 +36,13 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+input {
+    border: 1px solid lightgray;
+}
+input.error {
+    border: 1px solid red;
+}
+
 input[type="number"]::-webkit-inner-spin-button {
     display: none;
 }
@@ -36,7 +56,11 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .content-table th,
 .content-table td {
-    padding: 20px 20px;
+    padding: 15px 20px;
+}
+
+.content-table tr {
+    background-color: white;
 }
 
 .content-table tbody tr {
@@ -54,8 +78,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 td input {
-    width: 100px;
-    height: 20px;
+    width: 75px;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 td select {
@@ -64,7 +89,7 @@ td select {
 }
 
 #cols {
-    padding: 20px 25px;
+    padding: 15px 25px;
     text-align: right;
     font-weight: bold;
 }
@@ -89,6 +114,7 @@ td select {
 .btn-btn-align {
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 #change-bg {
@@ -98,6 +124,7 @@ td select {
 
 .header {
     display: flex;
+    width: 100%;
     justify-content: center;
     background-color: #009879;
     color: white;

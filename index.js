@@ -21,19 +21,33 @@ submitBtn.onclick = async (e) => {
         const element = inputTable.children[index];
         const planet = element.firstElementChild.textContent.trim();
         const zodiac = element.children[3].firstElementChild.value.trim();
+        const degreeElement = element.children[1].firstElementChild;
+        const minutesElement = element.children[2].firstElementChild;
         var degree = element.children[1].firstElementChild.value;
         var minutes = element.children[2].firstElementChild.value;
         const numberElement = element.children[4];
         const nakshatraElement = element.children[5];
         const rulerElement = element.children[6];
         const currentRatio = createRatio(degree, minutes);
-        if (!/\d/.test(degree) || !/\d/.test(minutes)) {
-            element.style.backgroundColor = ERROR_COLOR;
+        if (
+            degree.indexOf(".") !== -1 ||
+            minutes.indexOf(".") !== -1 ||
+            degree < 0 ||
+            degree > 30 ||
+            minutes < 0 ||
+            minutes > 60 ||
+            !/\d/.test(degree) ||
+            !/\d/.test(minutes)
+        ) {
+            degreeElement.classList.add("error");
+            minutesElement.classList.add("error");
             continue;
         } else {
             degree = Number(degree);
             minutes = Number(minutes);
         }
+        degreeElement.classList.remove("error");
+        minutesElement.classList.remove("error");
         element.style.backgroundColor = "white";
         switch (planet) {
             case "Saturn":
@@ -145,6 +159,8 @@ resetBtn.onclick = () => {
         element.style.backgroundColor = "white";
         element.children[1].firstElementChild.value = "";
         element.children[2].firstElementChild.value = "";
+        element.children[1].firstElementChild.classList.remove("error");
+        element.children[2].firstElementChild.classList.remove("error");
         element.children[3].firstElementChild.value = "Ar";
         element.children[4].textContent = "";
         element.children[5].textContent = "";
