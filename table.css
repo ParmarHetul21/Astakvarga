@@ -1,14 +1,15 @@
 * {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
     margin: 0;
-  }
+}
 
-  .display {
+.display {
     display: flex;
     justify-content: center;
-  }
+}
 
-  .content-table {
+.content-table {
     border-collapse: collapse;
     margin: 15px 0;
     font-size: 0.9em;
@@ -16,93 +17,99 @@
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .content-table thead tr {
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.content-table thead tr {
     background-color: #009879;
     color: #ffffff;
     text-align: center;
     font-weight: bold;
-  }
-  
-  .content-table th,
-  .content-table td {
-    padding: 15px 20px;
-  }
-  
-  .content-table tbody tr {
+}
+
+.content-table th,
+.content-table td {
+    padding: 20px 20px;
+}
+
+.content-table tbody tr {
     border-bottom: 1px solid #dddddd;
-  }
-  
-  .content-table tbody tr:nth-of-type(even) {
-    background-color: #f3f3f3;
-  }
-  
-  .content-table tbody tr:last-of-type {
+}
+
+.content-table tbody tr:last-of-type,
+.content-table thead tr {
     border-bottom: 2px solid #009879;
-  }
-  
-  .content-table tbody tr.active-row {
+}
+
+.content-table tbody tr.active-row {
     font-weight: bold;
     color: #009879;
-  }
-  
-  td input{
+}
+
+td input {
     width: 100px;
     height: 20px;
-  }
+}
 
-  td select {
+td select {
     width: 100px;
     height: 30px;
-  }
+}
 
-  #cols {
-    padding: 20px 10px;
-    text-align: center;
-  }
+#cols {
+    padding: 20px 25px;
+    text-align: right;
+    font-weight: bold;
+}
 
-  #btn-submit {
+#btn-submit {
     background-color: #009879;
     color: white;
     padding: 15px;
     font-size: 15pt;
     margin-right: 15px;
     border: none;
-  }
+}
 
-  #btn-clear {
+#btn-clear {
     background-color: #009879;
     color: white;
     padding: 15px 20px;
     font-size: 15pt;
     border: none;
-  }
+}
 
-  .btn-btn-align {
+.btn-btn-align {
     display: flex;
     justify-content: center;
-  }
+}
 
-  #change-bg{
+#change-bg {
     background-color: #009879;
-    color: white;  
-  }
+    color: white;
+}
 
-  .header {
+.header {
     display: flex;
     justify-content: center;
     background-color: #009879;
     color: white;
     overflow: hidden;
     padding: 10px 10px;
-    font-size: 20px;     
-  }
+    font-size: 20px;
+}
 
-  .output {
+.output {
     font-size: 12pt;
-  }
-  
-  td:first-child {
+}
+
+td:first-child {
     font-size: 12pt;
-  }
+}
