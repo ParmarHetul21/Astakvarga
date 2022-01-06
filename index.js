@@ -1,7 +1,6 @@
 const inputTable = document.getElementById("input-table");
 const submitBtn = document.getElementById("btn-submit");
 const resetBtn = document.getElementById("btn-clear");
-const ERROR_COLOR = "#e5523b";
 
 const createRatio = (degree = 30, minutes = 60) => {
     const degreeRatio = (degree * 100) / 30;
@@ -52,7 +51,8 @@ submitBtn.onclick = async (e) => {
         switch (planet) {
             case "Saturn":
                 if (currentRatio < 0 || currentRatio > createRatio(3, 45)) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
@@ -61,7 +61,8 @@ submitBtn.onclick = async (e) => {
                     currentRatio < createRatio(3, 45) ||
                     currentRatio > createRatio(7, 30)
                 ) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
@@ -70,7 +71,8 @@ submitBtn.onclick = async (e) => {
                     currentRatio < createRatio(7, 30) ||
                     currentRatio > createRatio(11, 15)
                 ) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
@@ -79,7 +81,8 @@ submitBtn.onclick = async (e) => {
                     currentRatio < createRatio(11, 15) ||
                     currentRatio > createRatio(15, 0)
                 ) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
@@ -88,7 +91,8 @@ submitBtn.onclick = async (e) => {
                     currentRatio < createRatio(15, 0) ||
                     currentRatio > createRatio(18, 45)
                 ) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
@@ -97,7 +101,8 @@ submitBtn.onclick = async (e) => {
                     currentRatio < createRatio(18, 45) ||
                     currentRatio > createRatio(22, 30)
                 ) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
@@ -106,7 +111,8 @@ submitBtn.onclick = async (e) => {
                     currentRatio < createRatio(22, 30) ||
                     currentRatio > createRatio(26, 15)
                 ) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
@@ -115,7 +121,8 @@ submitBtn.onclick = async (e) => {
                     currentRatio < createRatio(26, 15) ||
                     currentRatio > createRatio(30, 0)
                 ) {
-                    element.style.backgroundColor = ERROR_COLOR;
+                    degreeElement.classList.add("error");
+                    minutesElement.classList.add("error");
                     continue;
                 }
                 break;
