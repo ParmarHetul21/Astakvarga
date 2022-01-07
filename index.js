@@ -16,7 +16,7 @@ submitBtn.onclick = async (e) => {
     const table2 = await data.json();
     var totalNumber = 0;
 
-    for (let index = 0; index < 8; index++) {
+    for (let index = 0; index < 9; index++) {
         const element = inputTable.children[index];
         const planet = element.firstElementChild.textContent.trim();
         const zodiac = element.children[3].firstElementChild.value.trim();
@@ -28,6 +28,7 @@ submitBtn.onclick = async (e) => {
         const nakshatraElement = element.children[5];
         const rulerElement = element.children[6];
         const currentRatio = createRatio(degree, minutes);
+        console.log(currentRatio);
         if (
             degree.indexOf(".") !== -1 ||
             minutes.indexOf(".") !== -1 ||
@@ -48,87 +49,6 @@ submitBtn.onclick = async (e) => {
         degreeElement.classList.remove("error");
         minutesElement.classList.remove("error");
         element.style.backgroundColor = "white";
-        switch (planet) {
-            case "Saturn":
-                if (currentRatio < 0 || currentRatio > createRatio(3, 45)) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            case "Jupiter":
-                if (
-                    currentRatio < createRatio(3, 45) ||
-                    currentRatio > createRatio(7, 30)
-                ) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            case "Mars":
-                if (
-                    currentRatio < createRatio(7, 30) ||
-                    currentRatio > createRatio(11, 15)
-                ) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            case "Sun":
-                if (
-                    currentRatio < createRatio(11, 15) ||
-                    currentRatio > createRatio(15, 0)
-                ) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            case "Venus":
-                if (
-                    currentRatio < createRatio(15, 0) ||
-                    currentRatio > createRatio(18, 45)
-                ) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            case "Mercury":
-                if (
-                    currentRatio < createRatio(18, 45) ||
-                    currentRatio > createRatio(22, 30)
-                ) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            case "Moon":
-                if (
-                    currentRatio < createRatio(22, 30) ||
-                    currentRatio > createRatio(26, 15)
-                ) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            case "Ascendant":
-                if (
-                    currentRatio < createRatio(26, 15) ||
-                    currentRatio > createRatio(30, 0)
-                ) {
-                    degreeElement.classList.add("error");
-                    minutesElement.classList.add("error");
-                    continue;
-                }
-                break;
-            default:
-                break;
-        }
         const number = table1[planet][zodiac];
         numberElement.textContent = number;
         totalNumber += number;
