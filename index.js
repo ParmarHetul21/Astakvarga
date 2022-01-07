@@ -28,7 +28,6 @@ submitBtn.onclick = async (e) => {
         const nakshatraElement = element.children[5];
         const rulerElement = element.children[6];
         const currentRatio = createRatio(degree, minutes);
-        console.log(currentRatio);
         if (
             degree.indexOf(".") !== -1 ||
             minutes.indexOf(".") !== -1 ||
@@ -36,6 +35,7 @@ submitBtn.onclick = async (e) => {
             degree > 30 ||
             minutes < 0 ||
             minutes > 60 ||
+            currentRatio > 100 ||
             !/\d/.test(degree) ||
             !/\d/.test(minutes)
         ) {
@@ -49,7 +49,53 @@ submitBtn.onclick = async (e) => {
         degreeElement.classList.remove("error");
         minutesElement.classList.remove("error");
         element.style.backgroundColor = "white";
-        const number = table1[planet][zodiac];
+        var internalPlanet;
+        if (currentRatio >= 0 && currentRatio <= createRatio(3, 45))
+            internalPlanet = "Saturn";
+
+        if (
+            currentRatio > createRatio(3, 45) &&
+            currentRatio <= createRatio(7, 30)
+        )
+            internalPlanet = "Jupiter";
+
+        if (
+            currentRatio > createRatio(7, 30) &&
+            currentRatio <= createRatio(11, 15)
+        )
+            internalPlanet = "Mars";
+
+        if (
+            currentRatio > createRatio(11, 15) &&
+            currentRatio <= createRatio(15, 0)
+        )
+            internalPlanet = "Sun";
+
+        if (
+            currentRatio > createRatio(15, 0) &&
+            currentRatio <= createRatio(18, 45)
+        )
+            internalPlanet = "Venus";
+
+        if (
+            currentRatio > createRatio(18, 45) &&
+            currentRatio <= createRatio(22, 30)
+        )
+            internalPlanet = "Mercury";
+
+        if (
+            currentRatio > createRatio(22, 30) &&
+            currentRatio <= createRatio(26, 15)
+        )
+            internalPlanet = "Moon";
+
+        if (
+            currentRatio > createRatio(26, 15) &&
+            currentRatio <= createRatio(30, 0)
+        )
+            internalPlanet = "Ascendant";
+
+        const number = table1[internalPlanet][zodiac];
         numberElement.textContent = number;
         totalNumber += number;
 
@@ -81,7 +127,7 @@ submitBtn.onclick = async (e) => {
 };
 
 resetBtn.onclick = () => {
-    for (let index = 0; index < 8; index++) {
+    for (let index = 0; index < 9; index++) {
         element = inputTable.children[index];
         element.style.backgroundColor = "white";
         element.children[1].firstElementChild.value = "";
